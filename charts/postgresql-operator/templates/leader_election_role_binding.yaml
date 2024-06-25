@@ -1,0 +1,16 @@
+{{- if and .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "postgresql-operator.fullname" . }}-leader-election-rolebinding
+  labels:
+{{ include "postgresql-operator.labels" . | indent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "postgresql-operator.fullname" . }}-leader-election-role
+subjects:
+- kind: ServiceAccount
+  name: {{ template "postgresql-operator.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}

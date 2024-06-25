@@ -1,0 +1,106 @@
+{{- if and .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "postgresql-operator.fullname" . }}-role
+  labels:
+{{ include "postgresql-operator.labels" . | indent 4 }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqldatabases
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqldatabases/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqldatabases/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqlengineconfigurations
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqlengineconfigurations/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqlengineconfigurations/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqluserroles
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqluserroles/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - postgresql.easymile.com
+  resources:
+  - postgresqluserroles/status
+  verbs:
+  - get
+  - patch
+  - update
+{{- end -}}
