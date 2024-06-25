@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  postgresql-operator:
+  - apiVersion: v1
+    appVersion: 3.2.0
+    created: "2024-06-25T08:12:08.471497734Z"
+    description: A Helm chart for Kubernetes
+    digest: 1a9802916bc2700e9bac87bdef0ba3ceea2ef42ec42a5f48ae893e722acda374
+    name: postgresql-operator
+    urls:
+    - https://github.com/EasyMile/helm-charts/releases/download/postgresql-operator-1.6.0/postgresql-operator-1.6.0.tgz
+    version: 1.6.0
+generated: "2024-06-25T08:12:08.471508224Z"
