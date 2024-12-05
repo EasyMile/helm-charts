@@ -9,6 +9,7 @@ rbac:
 ## Service account name and whether to create it
 serviceAccount:
   create: true
+  annotations: {}
   name:
 
 ## Let it empty to watch all namespaces
@@ -18,7 +19,7 @@ replicaCount: 1
 
 image:
   repository: easymile/postgresql-operator
-  tag: 3.2.0
+  tag: 3.3.0
   pullPolicy: IfNotPresent
 
 args:
@@ -76,6 +77,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+podAnnotations: {}
 
 grafanaDashboards:
   enabled: false
