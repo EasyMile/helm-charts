@@ -19,7 +19,7 @@ replicaCount: 1
 
 image:
   repository: easymile/postgresql-operator
-  tag: 3.4.1
+  tag: 3.4.2
   pullPolicy: IfNotPresent
 
 args:
